@@ -33,7 +33,6 @@ public class ItemBuilder {
      */
     private final ItemStack item;
     private final ItemMeta meta;
-    private final Damageable damageable;
     private final List<String> lore = new ArrayList<>();
     private final Set<ItemFlag> flags = new HashSet<>();
     private final Map<Enchantment, Integer> enchantments = new HashMap<>();
@@ -55,7 +54,6 @@ public class ItemBuilder {
         amount = item.getAmount();
         enchantments.putAll(item.getEnchantments());
         meta = item.getItemMeta();
-        damageable = (Damageable) meta;
 
         if(item.hasItemMeta()) {
             if(meta.hasDisplayName()) {
@@ -78,7 +76,6 @@ public class ItemBuilder {
     public ItemBuilder(Material material, int amount) {
         item = new ItemStack(material, amount);
         meta = item.getItemMeta();
-        damageable = (Damageable) meta;
         this.material = material;
         this.amount = amount;
         durability = material.getMaxDurability();
@@ -102,7 +99,6 @@ public class ItemBuilder {
     public ItemBuilder(@NotNull ItemBuilder builder) {
         item = new ItemStack(builder.item);
         meta = item.getItemMeta();
-        damageable = (Damageable) meta;
         material = builder.material;
         displayName = builder.displayName;
         amount = builder.amount;
