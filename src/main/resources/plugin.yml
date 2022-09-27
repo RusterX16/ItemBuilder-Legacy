@@ -1,0 +1,4 @@
+name: ItemBuilder
+version: '${project.version}'
+main: dev.ruster
+api-version: 1.8.8
